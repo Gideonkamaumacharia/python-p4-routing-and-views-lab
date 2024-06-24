@@ -21,8 +21,25 @@ def count_route(param):
     return results
 
 @app.route('/math/<num1>/<opertaion>/<num2>')
-def math_route(num1,operation,num2):
+def math(num1,operation,num2):
+    result = None
+    if operation == '+':
+        result = num1 + num2
+    elif operation == '-':
+        result = num1 - num2
+    elif operation == '*':
+        result = num1 * num2
+    elif operation == 'div':
+        if num2 != 0:
+            result = num1 / num2
+        else:
+            return 'Error: Division by zero'
+    elif operation == '%':
+        result = num1 % num2
+    else:
+        return 'Error: Invalid operation specified!'
     
+    return f"Result of {num1} {operation} {num2} is {result}"
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
