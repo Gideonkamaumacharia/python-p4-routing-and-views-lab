@@ -23,10 +23,12 @@ def count_route(param):
 @app.route('/math/<int:num1>/<operation>/<int:num2>')
 def math(num1, operation, num2):
     result = None
-    if operation == 'add':
+    if operation == '+':
         result = num1 + num2
-    elif operation == 'sub':
+        return str(result)
+    elif operation == '-':
         result = num1 - num2
+        return str(result)
     elif operation == 'mul':
         result = num1 * num2
     elif operation == 'div':
@@ -39,7 +41,7 @@ def math(num1, operation, num2):
     else:
         return 'Invalid operation. Supported operations: add, sub, mul, div, mod'
     
-    return f'<h3>Result of {num1} {operation} {num2}:</h3><p>{result}</p>'
+    return str(result) 
 
 if __name__ == '__main__':
     app.run(debug=True)
