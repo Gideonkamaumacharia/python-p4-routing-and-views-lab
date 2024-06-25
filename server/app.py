@@ -29,19 +29,22 @@ def math(num1, operation, num2):
     elif operation == '-':
         result = num1 - num2
         return str(result)
-    elif operation == 'mul':
+    elif operation == '*':
         result = num1 * num2
+        return str(result)
     elif operation == 'div':
         if num2 != 0:
             result = num1 / num2
+            return str(result)
         else:
             return 'Division by zero is not allowed!'
-    elif operation == 'mod':
+    elif operation == '%':
         result = num1 % num2
+        return str(result)
     else:
         return 'Invalid operation. Supported operations: add, sub, mul, div, mod'
     
-    return str(result) 
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
